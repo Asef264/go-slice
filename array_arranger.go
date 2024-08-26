@@ -1,6 +1,10 @@
 package array_arranger
 
-// String arrays
+/*
+
+	string arrays
+
+*/
 
 type StringArray []string
 
@@ -64,6 +68,12 @@ func (sa StringArray) ElementExist(element string) ElementExist {
 	}
 	return ElementExist{}
 }
+
+/*
+
+	integer arrays
+
+*/
 
 // ReverseInteger reverses the elements in an array of integers
 func ReverseInteger(in []int) []int {
