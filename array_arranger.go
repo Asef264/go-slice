@@ -1,6 +1,9 @@
 package array_arranger
 
 // String arrays
+
+type StringArray []string
+
 // ReverseString gets an array of strings and reverses its elements
 func ReverseString(in []string) []string {
 	// Create an output array with the same length as the input array
@@ -42,6 +45,11 @@ func (sa StringArray) CountElements() int {
 		out++
 	}
 	return out
+}
+
+type ElementExist struct {
+	Exist bool
+	Index int
 }
 
 // ElementExist checks if an element exists in a StringArray and returns its index
