@@ -22,6 +22,15 @@ func (sa StringArray) AttachElements() string {
 	}
 	return output
 }
+
+func (sa StringArray) AttachElementsBySpace() string {
+	output := ""
+	for _, v := range sa {
+		output = output + " " + v
+	}
+	return output
+}
+
 func ReverseInteger(in []int) []int {
 	output := make([]int, len(in))
 	for i := 0; i < len(in); i++ {
