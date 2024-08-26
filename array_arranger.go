@@ -97,6 +97,22 @@ func (sa StringArray) ElementsIndexMapper() map[int]string {
 	return m
 }
 
+// TODO: complete this ...
+func (sa StringArray) DeleteElement(element string) ElementExist {
+	if len(sa) == 0 {
+		return ElementExist{}
+	}
+	for i, v := range sa {
+		if v == element {
+			return ElementExist{
+				Exist: true,
+				Index: i,
+			}
+		}
+	}
+	return ElementExist{}
+}
+
 /*
 
 	integer arrays
