@@ -12,7 +12,9 @@ func ReverseString(in []string) []string {
 	}
 	return output
 }
-
+func NewStringArray(in []string) StringArray {
+	return in
+}
 func (sa StringArray) AttachElements() string {
 	output := ""
 	for _, v := range sa {
