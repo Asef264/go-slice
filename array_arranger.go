@@ -12,6 +12,9 @@ type StringArray []string
 func ReverseString(in []string) []string {
 	// Create an output array with the same length as the input array
 	output := make([]string, len(in))
+	if len(in) == 0 {
+		return output
+	}
 	for i := 0; i < len(in); i++ {
 		// Reverse the order of elements
 		output[i] = in[len(in)-1-i]
@@ -27,6 +30,9 @@ func NewStringArray(in []string) StringArray {
 // AttachElements concatenates the elements of a StringArray into a single string
 func (sa StringArray) AttachElements() string {
 	output := ""
+	if len(sa) == 0 {
+		return output
+	}
 	for _, v := range sa {
 		output += v
 	}
@@ -36,6 +42,9 @@ func (sa StringArray) AttachElements() string {
 // AttachElementsBySpace concatenates the elements of a StringArray into a single string separated by spaces
 func (sa StringArray) AttachElementsBySpace() string {
 	output := ""
+	if len(sa) == 0 {
+		return output
+	}
 	for _, v := range sa {
 		output = output + " " + v
 	}
@@ -45,6 +54,9 @@ func (sa StringArray) AttachElementsBySpace() string {
 // CountElements returns the number of elements in a StringArray
 func (sa StringArray) CountElements() int {
 	out := 0
+	if len(sa) == 0 {
+		return out
+	}
 	for range sa {
 		out++
 	}
@@ -58,6 +70,9 @@ type ElementExist struct {
 
 // ElementExist checks if an element exists in a StringArray and returns its index
 func (sa StringArray) ElementExist(element string) ElementExist {
+	if len(sa) == 0 {
+		return ElementExist{}
+	}
 	for i, v := range sa {
 		if v == element {
 			return ElementExist{
@@ -72,6 +87,9 @@ func (sa StringArray) ElementExist(element string) ElementExist {
 // ElementsIndexMapper maps arrays element to its index
 func (sa StringArray) ElementsIndexMapper() map[int]string {
 	m := make(map[int]string)
+	if len(sa) == 0 {
+		return m
+	}
 	for i, v := range sa {
 		m[i] = v
 	}
