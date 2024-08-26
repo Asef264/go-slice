@@ -69,6 +69,16 @@ func (sa StringArray) ElementExist(element string) ElementExist {
 	return ElementExist{}
 }
 
+// ElementsIndexMapper maps arrays element to its index
+func (sa StringArray) ElementsIndexMapper() map[int]string {
+	m := make(map[int]string)
+	for i, v := range sa {
+		m[i] = v
+	}
+
+	return m
+}
+
 /*
 
 	integer arrays
