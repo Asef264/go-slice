@@ -1,5 +1,10 @@
 package array_arranger
 
+//String arrays
+
+type StringArray []string
+
+// ReverseString gets an array in string and reverses its elements
 func ReverseString(in []string) []string {
 	output := make([]string, len(in))
 	for i := 0; i < len(in); i++ {
@@ -8,6 +13,13 @@ func ReverseString(in []string) []string {
 	return output
 }
 
+func (sa StringArray) AttachElements() string {
+	output := ""
+	for _, v := range sa {
+		output += v
+	}
+	return output
+}
 func ReverseInteger(in []int) []int {
 	output := make([]int, len(in))
 	for i := 0; i < len(in); i++ {
