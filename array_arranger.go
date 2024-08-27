@@ -1,5 +1,9 @@
 package array_arranger
 
+import (
+	"strconv"
+)
+
 /*
 
 	string arrays
@@ -125,6 +129,38 @@ func (sa StringArray) ShiftElements(n int) []string {
 	}
 
 	return output
+}
+
+func (sa StringArray) AppendElementToTheEnd(element string) []string {
+	return append(sa, element)
+}
+
+func (sa StringArray) AppendElementToTheFirst(element string) []string {
+	output := make([]string, len(sa)+1)
+	output[0] = element
+	copy(output[1:], sa)
+	return output
+}
+
+func AppendSlices(first, second []string) []string {
+	output := make([]string, 0)
+	output = append(output, first...)
+	output = append(output, second...)
+	return output
+}
+
+func (sa StringArray) ToDigits() []int {
+	output := make([]int, 0)
+	for _, v := range sa {
+
+		val, err := strconv.Atoi(v)
+		if err != nil {
+			return output
+		}
+		output = append(output, val)
+	}
+	return output
+
 }
 
 /*

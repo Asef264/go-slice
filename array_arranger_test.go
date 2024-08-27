@@ -1,6 +1,7 @@
 package array_arranger
 
 import (
+	"errors"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -43,4 +44,36 @@ func TestDeleteTwoElements(t *testing.T) {
 	testy := NewStringArray(sa)
 	result := testy.DeleteElement(Element)
 	assert.Equal(t, want1, result)
+}
+
+func TestAppendElementToTheFirst(t *testing.T) {
+	Element := "pari"
+	sa := []string{"khaled", "hamzah", "saeed", "khaled", "sara"}
+	want := []string{"pari", "khaled", "hamzah", "saeed", "khaled", "sara"}
+	testy := NewStringArray(sa)
+	result := testy.AppendElementToTheFirst(Element)
+	assert.Equal(t, want, result)
+}
+
+func TestAppendSlices(t *testing.T) {
+	first := []string{"khaled", "hamzah", "saeed", "khaled", "sara"}
+	second := []string{"man", "to"}
+	want1 := []string{"khaled", "hamzah", "saeed", "khaled", "sara", "man", "to"}
+	result := AppendSlices(first, second)
+	assert.Equal(t, want1, result)
+}
+
+func TestToDigits(t *testing.T) {
+	first := []string{"0", "43", "3", "2", "1"}
+	want1 := []int{0, 43, 3, 2, 1}
+	testy := NewStringArray(first)
+	result := testy.ToDigits()
+	assert.Equal(t, want1, result)
+}
+
+func TestToDigitsError(t *testing.T) {
+	first := []string{"0", "error", "3", "2", "1"}
+	testy := NewStringArray(first)
+	result := testy.ToDigits()
+	assert.Error(t, errors.ErrUnsupported, result)
 }
