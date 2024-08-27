@@ -98,19 +98,33 @@ func (sa StringArray) ElementsIndexMapper() map[int]string {
 }
 
 // TODO: complete this ...
-func (sa StringArray) DeleteElement(element string) ElementExist {
+func (sa StringArray) DeleteElement(element string) []string {
 	if len(sa) == 0 {
-		return ElementExist{}
+		return sa
 	}
 	for i, v := range sa {
 		if v == element {
-			return ElementExist{
-				Exist: true,
-				Index: i,
-			}
+			sa = append(sa[:i], sa[i+1:]...)
 		}
 	}
-	return ElementExist{}
+	return sa
+}
+
+// ShiftElements to shift to the right use minus digits and positive digits to shift to the left
+func (sa StringArray) ShiftElements(n int) []string {
+	output := make([]string, len(sa))
+
+	for i := range sa {
+		j := n + i
+		if j >= len(sa) {
+			j -= len(sa)
+		} else if j < 0 {
+			j += len(sa)
+		}
+		output[i] = sa[j]
+	}
+
+	return output
 }
 
 /*
