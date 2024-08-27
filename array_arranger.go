@@ -131,10 +131,12 @@ func (sa StringArray) ShiftElements(n int) []string {
 	return output
 }
 
+// AppendElementToTheEnd appends an element to the end of an string arrey
 func (sa StringArray) AppendElementToTheEnd(element string) []string {
 	return append(sa, element)
 }
 
+// AppendElementToTheFirst appends an element to the very first of an string arrey
 func (sa StringArray) AppendElementToTheFirst(element string) []string {
 	output := make([]string, len(sa)+1)
 	output[0] = element
@@ -142,6 +144,7 @@ func (sa StringArray) AppendElementToTheFirst(element string) []string {
 	return output
 }
 
+// AppendSlices appends two slices
 func AppendSlices(first, second []string) []string {
 	output := make([]string, 0)
 	output = append(output, first...)
@@ -149,6 +152,7 @@ func AppendSlices(first, second []string) []string {
 	return output
 }
 
+// ToDigits converts the string elements to digits and return the corresponding int array
 func (sa StringArray) ToDigits() []int {
 	output := make([]int, 0)
 	for _, v := range sa {
