@@ -77,3 +77,22 @@ func TestToDigitsError(t *testing.T) {
 	result := testy.ToDigits()
 	assert.Error(t, errors.ErrUnsupported, result)
 }
+
+func TestReverseRangeStringArray(t *testing.T) {
+	first := []string{"khaled", "hamzah", "saeed", "sara"}
+	second := []string{"sara", "saeed", "hamzah", "khaled"}
+	testy := NewStringArray(first)
+	index := 0
+	v := ""
+	out := []string{}
+	for {
+		if index == len(first) {
+			break
+		}
+		_, v = testy.ReverseRange(index)
+		index++
+		out = append(out, v)
+	}
+	assert.Equal(t, second, out)
+
+}
