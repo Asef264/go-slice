@@ -1,4 +1,4 @@
-package array_arranger
+package go_slice
 
 import (
 	"strconv"

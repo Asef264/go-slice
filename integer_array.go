@@ -1,4 +1,9 @@
-package array_arranger
+package go_slice
+
+/*
+ Package slices provides utility functions to work with Go slices.
+ Author: Khaled Moazedi
+ Email: Xhmoazedi@gmail.com
 
 /*
 
