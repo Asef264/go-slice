@@ -141,3 +141,41 @@ func TestAverage(t *testing.T) {
 	out := intSlice.Average()
 	assert.Equal(t, 3., out)
 }
+
+func TestSortAsc(t *testing.T) {
+	tests := []struct {
+		input    []int
+		expected []int
+	}{
+		{[]int{5, 3, 8, 1, 2}, []int{1, 2, 3, 5, 8}},
+		{[]int{10, 7, 8, 9, 1}, []int{1, 7, 8, 9, 10}},
+		{[]int{1, 2, 3}, []int{1, 2, 3}},
+		{[]int{}, []int{}},
+	}
+
+	for _, test := range tests {
+		input := make([]int, len(test.input))
+		copy(input, test.input)
+		SortAsc(input)
+		assert.Equal(t, test.expected, input)
+	}
+}
+
+func TestSortDesc(t *testing.T) {
+	tests := []struct {
+		input    []int
+		expected []int
+	}{
+		{[]int{5, 3, 8, 1, 2}, []int{8, 5, 3, 2, 1}},
+		{[]int{10, 7, 8, 9, 1}, []int{10, 9, 8, 7, 1}},
+		{[]int{3, 2, 1}, []int{3, 2, 1}},
+		{[]int{}, []int{}},
+	}
+
+	for _, test := range tests {
+		input := make([]int, len(test.input))
+		copy(input, test.input)
+		SortDesc(input)
+		assert.Equal(t, test.expected, input)
+	}
+}

@@ -1,5 +1,7 @@
 package go_slice
 
+import "sort"
+
 /*
  Package go-slice provides utility functions to work with Go slices.
  Author: Khaled Moazedi
@@ -36,4 +38,16 @@ func ToInt64(in []int) []int64 {
 // Average comes on a slice in int type and calculates the average of elements
 func (is IntSlice) Average() float64 {
 	return float64(is.SumInt()) / float64(len(is))
+}
+
+// Sorts a slice of integers in ascending order
+func SortAsc(slice []int) {
+	sort.Ints(slice)
+}
+
+// Sorts a slice of integers in descending order
+func SortDesc(slice []int) {
+	sort.Slice(slice, func(i, j int) bool {
+		return slice[i] > slice[j]
+	})
 }
