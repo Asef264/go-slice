@@ -1,6 +1,13 @@
 package go_slice
 
-import "reflect"
+/*
+ Package go-slice provides utility functions to work with Go slices.
+ Author: Khaled Moazedi
+ Email: Xhmoazedi@gmail.com
+*/
+import (
+	"reflect"
+)
 
 // Reverse reverses a slice with any type
 func Reverse[T any](in []T) []T {

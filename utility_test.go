@@ -1,5 +1,11 @@
 package go_slice
 
+/*
+ Package go-slice provides utility functions to work with Go slices.
+ Author: Khaled Moazedi
+ Email: Xhmoazedi@gmail.com
+*/
+
 import (
 	"errors"
 	"testing"
@@ -120,4 +126,11 @@ func TestTypeOf(t *testing.T) {
 	arrayType1 := TypeOf(firstInt)
 	assert.Equal(t, "int", arrayType1)
 
+}
+
+func TestSum(t *testing.T) {
+	firstInt := []int{1, 2, 3, 4}
+	intSlice := NewIntSlice(firstInt)
+	out := intSlice.SumInt()
+	assert.Equal(t, int64(10), out)
 }

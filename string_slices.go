@@ -1,5 +1,10 @@
 package go_slice
 
+/*
+ Package slices provides utility functions to work with Go slices.
+ Author: Khaled Moazedi
+ Email: Xhmoazedi@gmail.com
+*/
 import (
 	"strconv"
 )
@@ -169,6 +174,8 @@ func (sa StringArray) ToDigits() []int {
 
 //ReverseRange iterates on the string array backwardly
 /*
+sample usage :
+
 arr := []string{"one","two","three"}
 index := 0
 for (

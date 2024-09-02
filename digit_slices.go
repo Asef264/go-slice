@@ -1,15 +1,19 @@
 package go_slice
 
 /*
- Package slices provides utility functions to work with Go slices.
+ Package go-slice provides utility functions to work with Go slices.
  Author: Khaled Moazedi
  Email: Xhmoazedi@gmail.com
+*/
 
 /*
-
-	integer arrays
-
+digit slices
 */
+type IntSlice []int
+
+func NewIntSlice(in []int) IntSlice {
+	return in
+}
 
 // ReverseInteger reverses the elements in an array of integers
 func ReverseInteger(in []int) []int {
@@ -51,4 +55,17 @@ func ReverseFloat32(in []float32) []float32 {
 		output[i] = in[len(in)-1-i]
 	}
 	return output
+}
+
+// SumInt gets a slice in type int and returns a summerize of all elements in int64
+func (is IntSlice) SumInt() int64 {
+	out := make([]int64, 0)
+	for _, v := range is {
+		out = append(out, int64(v))
+	}
+	var sum int64
+	for _, item := range out {
+		sum += item
+	}
+	return sum
 }
