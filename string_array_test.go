@@ -96,3 +96,28 @@ func TestReverseRangeStringArray(t *testing.T) {
 	assert.Equal(t, second, out)
 
 }
+
+func TestReverse(t *testing.T) {
+	first := []string{"khaled", "hamzah", "saeed", "sara"}
+	second := []string{"sara", "saeed", "hamzah", "khaled"}
+
+	firstInt := []int{1, 2, 3, 4}
+	secondInt := []int{4, 3, 2, 1}
+
+	out := Reverse(first)
+	outInt := Reverse(firstInt)
+	assert.Equal(t, second, out)
+	assert.Equal(t, secondInt, outInt)
+}
+
+func TestTypeOf(t *testing.T) {
+	first := []string{"khaled", "hamzah", "saeed", "sara"}
+	arrayType := TypeOf(first)
+	assert.Equal(t, "string", arrayType)
+
+	firstInt := []int{1, 2, 3, 4}
+
+	arrayType1 := TypeOf(firstInt)
+	assert.Equal(t, "int", arrayType1)
+
+}
