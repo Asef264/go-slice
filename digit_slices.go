@@ -59,13 +59,23 @@ func ReverseFloat32(in []float32) []float32 {
 
 // SumInt gets a slice in type int and returns a summerize of all elements in int64
 func (is IntSlice) SumInt() int64 {
-	out := make([]int64, 0)
-	for _, v := range is {
-		out = append(out, int64(v))
-	}
+	out := ToInt64(is)
 	var sum int64
 	for _, item := range out {
 		sum += item
 	}
 	return sum
+}
+
+func ToInt64(in []int) []int64 {
+	out := make([]int64, 0)
+	for _, v := range in {
+		out = append(out, int64(v))
+	}
+	return out
+}
+
+// Average comes on a slice in int type and calculates the average of elements
+func (is IntSlice) Average() float64 {
+	return float64(is.SumInt()) / float64(len(is))
 }

@@ -134,3 +134,10 @@ func TestSum(t *testing.T) {
 	out := intSlice.SumInt()
 	assert.Equal(t, int64(10), out)
 }
+
+func TestAverage(t *testing.T) {
+	firstInt := []int{1, 2, 3, 6}
+	intSlice := NewIntSlice(firstInt)
+	out := intSlice.Average()
+	assert.Equal(t, 3., out)
+}
